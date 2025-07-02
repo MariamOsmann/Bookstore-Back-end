@@ -1,6 +1,7 @@
 const express = require("express");
 
 const BooksPath = require("./routes/Books");
+const AuthorPath =require("./routes/authors");
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(express.json());
 
 
 app.use("/api/Books",BooksPath);
-
+app.use("/api/authors",AuthorPath);
 
  
 const PORT=5000;
