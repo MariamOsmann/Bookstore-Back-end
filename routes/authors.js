@@ -98,23 +98,16 @@ router.put("/:id",(req,res)=>{
     }
 });
 
-
-// router.delete("/:id",(req,res)=>{
-//     const author=authors.find(a=>a.id === parseInt(req.params.id));
-//     if(author){
-//     res.status(200).json({message :" Author has been deleted" });   
-//     }
-//     else
-//     {
-//         res.status(404).json({message: "The Author is not found"});
-//     }
-// })
-
+/**
+ * @desc Delete Author
+ * @route /api/authors/:id
+ * @method delete
+ * @access public
+ */
 
 router.delete("/:id",(req,res)=>{
-    const index =authors.findIndex(a=>a.id === parseInt(req.params.id));
-    if(index !== -1){
-    authors.splice(index,1);    
+    const author=authors.find(a=>a.id === parseInt(req.params.id));
+    if(author){
     res.status(200).json({message :" Author has been deleted" });   
     }
     else
@@ -122,6 +115,19 @@ router.delete("/:id",(req,res)=>{
         res.status(404).json({message: "The Author is not found"});
     }
 })
+
+
+// router.delete("/:id",(req,res)=>{
+//     const index =authors.findIndex(a=>a.id === parseInt(req.params.id));
+//     if(index !== -1){
+//     authors.splice(index,1);    
+//     res.status(200).json({message :" Author has been deleted" });   
+//     }
+//     else
+//     {
+//         res.status(404).json({message: "The Author is not found"});
+//     }
+// })
 
 
 
